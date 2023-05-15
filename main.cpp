@@ -18,7 +18,8 @@ int main() {
     stdio_init_all();
 
     pico_unicorn.init();
-    pico_unicorn.clear();
+
+    graphics.clear();
 
     graphics.set_pen(255, 0, 0);
 
