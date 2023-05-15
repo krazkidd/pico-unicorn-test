@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.12)
 # Change your executable name to something creative!
 set(NAME pico-unicorn-test) # <-- Name your project/executable here!
 
-include(pimoroni_pico_import.cmake)
-include(pico_sdk_import.cmake)
+include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+include(${PIMORONI_PICO_PATH}/pimoroni_pico_import.cmake)
 
 # Gooey boilerplate
 project(${NAME} C CXX ASM)
@@ -20,17 +20,18 @@ add_executable(${NAME}
 )
 
 # Include required libraries
-# This assumes `pimoroni-pico` is stored alongside your project
-include(common/pimoroni_i2c)
-include(common/pimoroni_bus)
-include(libraries/bitmap_fonts/bitmap_fonts)
-include(libraries/hershey_fonts/hershey_fonts)
-include(libraries/pico_explorer/pico_explorer)
+include(${PIMORONI_PICO_PATH}/common/pimoroni_i2c)
+include(${PIMORONI_PICO_PATH}/common/pimoroni_bus)
+include(${PIMORONI_PICO_PATH}/libraries/pico_graphics/pico_graphics)
+include(${PIMORONI_PICO_PATH}/libraries/pico_unicorn/pico_unicorn)
 
 # Don't forget to link the libraries you need!
 target_link_libraries(${NAME}
-    pimoroni_i2c
-    pico_explorer # <-- List libraries here!
+    pico_stdlib # <-- List libraries here!
+    hardware_pio
+    hardware_dma
+    pico_graphics
+    pico_unicorn
 )
 
 # create map/bin/hex file etc.
