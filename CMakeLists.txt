@@ -22,10 +22,10 @@ add_executable(${NAME}
 )
 
 # Include required libraries
-include(${PIMORONI_PICO_PATH}/common/pimoroni_i2c)
-include(${PIMORONI_PICO_PATH}/common/pimoroni_bus)
-include(${PIMORONI_PICO_PATH}/libraries/pico_graphics/pico_graphics)
-include(${PIMORONI_PICO_PATH}/libraries/pico_unicorn/pico_unicorn)
+include(${PIMORONI_PICO_PATH}/common/pimoroni_i2c.cmake)
+include(${PIMORONI_PICO_PATH}/common/pimoroni_bus.cmake)
+include(${PIMORONI_PICO_PATH}/libraries/pico_graphics/pico_graphics.cmake)
+include(${PIMORONI_PICO_PATH}/libraries/pico_unicorn/pico_unicorn.cmake)
 
 # Don't forget to link the libraries you need!
 target_link_libraries(${NAME}
