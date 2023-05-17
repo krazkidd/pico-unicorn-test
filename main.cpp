@@ -22,10 +22,11 @@ int main() {
     graphics.clear();
 
     graphics.set_pen(255, 0, 0);
+    graphics.pixel(Point(0, 0));
 
-    while (true) {
-        graphics.pixel(Point(0, 0));
+    pico_unicorn.update(&graphics);
 
-        pico_unicorn.update(&graphics);
-    }
+    // while (true) {
+    //     //TODO do something
+    // }
 }
